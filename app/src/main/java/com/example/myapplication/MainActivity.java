@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private File photoFile;
     public String photoFileName = "photo.jpg";
     private Button lgOut;
+    // private ProgressBar pbLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         ivPostImage = findViewById(R.id.ivPostImage);
         btnSubmit = findViewById(R.id.btnSubmit);
         lgOut = findViewById(R.id.lgOut);
+        // pbLoading = findViewById(R.id.pbLoading);
 
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,8 +64,11 @@ public class MainActivity extends AppCompatActivity {
 
         // queryPosts();
         btnSubmit.setOnClickListener(new View.OnClickListener() {
+            // pbLoading.setVisibility(pbLoading.VISIBLE);
             @Override
+
             public void onClick(View v) {
+
                 String description = etDescription.getText().toString();
                 if (description.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Description cannot be empty", Toast.LENGTH_SHORT).show();
